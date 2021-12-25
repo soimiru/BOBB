@@ -35,4 +35,8 @@ public class MainMenuManager : MonoBehaviour
     public void GoToLevel(string level) {
         SceneManager.LoadScene(level);
     }
+
+    public void Customize(int index) {
+        PlayerPrefs.SetInt("PlayerMaterialIndex", index);
+    }
 }

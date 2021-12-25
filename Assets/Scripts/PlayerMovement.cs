@@ -6,12 +6,16 @@ public class PlayerMovement : MonoBehaviour
 {
 
     Rigidbody rigBody;
+    MaterialsList matList;
+    Material material;
     float dirX;
     float speed = 25f;
 
     private void Awake()
     {
         rigBody = GetComponent<Rigidbody>();
+        material = GetComponent<Material>();
+        matList = new MaterialsList();
     }
     void Start()
     {
