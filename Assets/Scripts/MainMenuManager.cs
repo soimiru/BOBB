@@ -6,19 +6,22 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
-    private GameObject levelSelector, mainMenu;
+    [Header("PANELES")]
+    public GameObject mainMenuPanel;
+    public GameObject levelSelectorPanel;
+    public GameObject customizePanel;
 
+    public CamManager cuboprueba;
     private void Awake()
     {
-        mainMenu = GameObject.Find("MainMenuPanel");
-        levelSelector = GameObject.Find("LevelSelectorPanel");
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        mainMenu.SetActive(true);
-        levelSelector.SetActive(false);
+        mainMenuPanel.SetActive(true);
+        levelSelectorPanel.SetActive(false);
+        customizePanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,16 +30,42 @@ public class MainMenuManager : MonoBehaviour
         
     }
 
-    public void GoLevelSelector() {
-        mainMenu.SetActive(false);
-        levelSelector.SetActive(true);
+    public void GoToMainMenu()
+    {
+        mainMenuPanel.SetActive(true);
+        levelSelectorPanel.SetActive(false);
+        customizePanel.SetActive(false);
     }
+
+    public void GoToLevelSelector() {
+        mainMenuPanel.SetActive(false);
+        levelSelectorPanel.SetActive(true);
+        customizePanel.SetActive(false);
+    }
+
+    public void GoToCustomize()
+    {
+        mainMenuPanel.SetActive(false);
+        levelSelectorPanel.SetActive(false);
+        customizePanel.SetActive(true);
+    }
+
+    public void Cam() {
+        cuboprueba.OpenCamera();
+    }
+
+    public void Cam1()
+    {
+        cuboprueba.TakeSnapshot();
+    }
+
 
     public void GoToLevel(string level) {
         SceneManager.LoadScene(level);
     }
 
     public void Customize(int index) {
+        Debug.Log("Color cambiado a: " + index);
         PlayerPrefs.SetInt("PlayerMaterialIndex", index);
     }
 }

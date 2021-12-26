@@ -6,20 +6,20 @@ public class PlayerMovement : MonoBehaviour
 {
 
     Rigidbody rigBody;
-    MaterialsList matList;
-    Material material;
+    MeshRenderer meshRenderer;
     float dirX;
     float speed = 25f;
 
     private void Awake()
     {
         rigBody = GetComponent<Rigidbody>();
-        material = GetComponent<Material>();
-        matList = new MaterialsList();
+        meshRenderer = GetComponent<MeshRenderer>();
     }
     void Start()
     {
-        
+        Debug.Log(PlayerPrefs.GetInt("PlayerMaterialIndex"));
+        //meshRenderer.material = meshRenderer.materials[PlayerPrefs.GetInt("PlayerMaterialIndex")];
+        meshRenderer.material.CopyPropertiesFromMaterial(meshRenderer.materials[PlayerPrefs.GetInt("PlayerMaterialIndex")]);
     }
 
     void Update()
