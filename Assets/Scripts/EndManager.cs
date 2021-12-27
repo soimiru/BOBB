@@ -25,7 +25,17 @@ public class EndManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Equals("Player")) {
+            Save();
             gm.uiManager.ShowEndPanel();
         }
+    }
+
+    public void Save() {
+        //Guardar tiempo
+        //Guardar nivel superado
+        string getLevel = "Level" + gm.levelID + "Completed";
+        PlayerPrefs.SetInt(getLevel, 1);
+        //Guardar coleccionable
+        
     }
 }

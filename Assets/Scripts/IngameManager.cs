@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IngameManager : MonoBehaviour
 {
-
+    public int levelID;
     public IngameUiManager uiManager;
 
     // Start is called before the first frame update

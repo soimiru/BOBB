@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
     }
     void Start()
     {
-        Debug.Log(PlayerPrefs.GetInt("PlayerMaterialIndex"));
         //meshRenderer.material = meshRenderer.materials[PlayerPrefs.GetInt("PlayerMaterialIndex")];
         meshRenderer.material.CopyPropertiesFromMaterial(meshRenderer.materials[PlayerPrefs.GetInt("PlayerMaterialIndex")]);
     }
