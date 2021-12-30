@@ -14,14 +14,15 @@ public class MainMenuManager : MonoBehaviour
     public CamManager cuboprueba;
     private void Awake()
     {
+        GetComponent<Animator>().SetTrigger("Home_Open");
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        mainMenuPanel.SetActive(true);
-        levelSelectorPanel.SetActive(false);
-        customizePanel.SetActive(false);
+        //mainMenuPanel.SetActive(true);
+        //levelSelectorPanel.SetActive(false);
+        //customizePanel.SetActive(false);
     }
 
     // Update is called once per frame
