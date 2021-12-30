@@ -12,6 +12,10 @@ public class IngameUiManager : MonoBehaviour
     public GameObject gamePanel;
     [Header("References")]
     private IngameManager gm;
+    [Header("Countdown")]
+    public int coundownTime;
+    public Text countdownText;
+    
 
     private void Awake()
     {
@@ -23,13 +27,29 @@ public class IngameUiManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 1;
+        StartCoroutine(CountdownToStart());
+        //Time.timeScale = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    IEnumerator CountdownToStart()
+    {
+        while (coundownTime > 0)
+        {
+            countdownText.text = coundownTime.ToString();
+            yield return new WaitForSeconds(1f);    //Espera unos segundos
+            coundownTime--;
+        }
+        countdownText.text = "GO!";
+
+        gm.BeginGame();
+        yield return new WaitForSeconds(1f);
+        countdownText.gameObject.SetActive(false);
     }
 
     public void ShowEndPanel() {

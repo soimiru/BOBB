@@ -6,6 +6,7 @@ public class IngameManager : MonoBehaviour
 {
     public int levelID;
     public IngameUiManager uiManager;
+    public PlayerMovement player;
 
     // Start is called before the first frame update
     void Start()
@@ -19,5 +20,8 @@ public class IngameManager : MonoBehaviour
         
     }
 
+    public void BeginGame() {
+        GameObject.Find("START").SetActive(false);
+    }
     
 }
