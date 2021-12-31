@@ -36,7 +36,7 @@ public class CamManager : MonoBehaviour
         //for (int i = 0; i < devices.Length; i++)
         //    Debug.Log(devices[i].name);
         deviceName = devices[4].name;
-        wct = new WebCamTexture(deviceName, 400, 300, 12);
+        wct = new WebCamTexture(deviceName, 400, 400, 30);
         GetComponent<Renderer>().material.mainTexture = wct;
         wct.Play();
     }

@@ -8,20 +8,27 @@ public class MainMenuManager : MonoBehaviour
 {
 
     public CamManager cuboprueba;
+    private Animator m_Animator;
 
     private void Awake()
     {
+        m_Animator = gameObject.GetComponent<Animator>();
+        m_Animator.SetTrigger("HIN");
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+    }
+
+    public void Reload() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Cam() {
@@ -35,11 +42,10 @@ public class MainMenuManager : MonoBehaviour
 
 
     public void GoToLevel(string level) {
-        SceneManager.LoadScene(level);
+        SceneManager.LoadScene(level, LoadSceneMode.Single);
     }
 
     public void Customize(int index) {
-        Debug.Log("Color cambiado a: " + index);
         PlayerPrefs.SetInt("PlayerMaterialIndex", index);
     }
 }

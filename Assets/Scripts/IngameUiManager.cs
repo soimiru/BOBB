@@ -28,7 +28,6 @@ public class IngameUiManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(CountdownToStart());
-        //Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -63,10 +62,12 @@ public class IngameUiManager : MonoBehaviour
         SceneManager.LoadScene(nextLevel);
     }
     public void BackToMenu(){
-        SceneManager.LoadScene("MainMenuScene");
+        Time.timeScale = 1;
+        SceneManager.LoadSceneAsync("MainMenuScene");
     }
 
     public void RestartLevel() {
+        Time.timeScale = 1;
         string thisLevel = "Level" + gm.levelID;
         SceneManager.LoadScene(thisLevel);
     }
