@@ -6,12 +6,9 @@ using UnityEngine.UI;
 
 public class IngameUiManager : MonoBehaviour
 {
-    [Header("UI Panels")]
-    public GameObject endPanel;
-    public GameObject pausePanel;
-    public GameObject gamePanel;
     [Header("References")]
     private IngameManager gm;
+    private Animator anim;
     [Header("Countdown")]
     public int coundownTime;
     public Text countdownText;
@@ -20,9 +17,7 @@ public class IngameUiManager : MonoBehaviour
     private void Awake()
     {
         gm = GameObject.Find("_GameManager").GetComponent<IngameManager>();
-        gamePanel.SetActive(true);
-        pausePanel.SetActive(false);
-        endPanel.SetActive(false);
+        anim = GetComponent<Animator>();
     }
     // Start is called before the first frame update
     void Start()
@@ -52,9 +47,7 @@ public class IngameUiManager : MonoBehaviour
     }
 
     public void ShowEndPanel() {
-        gamePanel.SetActive(false);
-        pausePanel.SetActive(false);
-        endPanel.SetActive(true);
+        anim.SetTrigger("EndIN");
     }
 
     public void NextLevel() {
@@ -74,15 +67,9 @@ public class IngameUiManager : MonoBehaviour
 
     public void PauseGame() {
         Time.timeScale = 0;
-        gamePanel.SetActive(false);
-        pausePanel.SetActive(true);
-        endPanel.SetActive(false);
     }
 
     public void DespauseGame() {
         Time.timeScale = 1;
-        gamePanel.SetActive(true);
-        pausePanel.SetActive(false);
-        endPanel.SetActive(false);
     }
 }
