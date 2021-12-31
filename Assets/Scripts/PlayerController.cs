@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
 
     Rigidbody rigBody;
     MeshRenderer meshRenderer;
     float dirX;
     float speed = 25f;
+
+    [Header("Game")]
+    private bool coin = false;
 
     private void Awake()
     {
@@ -19,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //meshRenderer.material = meshRenderer.materials[PlayerPrefs.GetInt("PlayerMaterialIndex")];
         meshRenderer.material.CopyPropertiesFromMaterial(meshRenderer.materials[PlayerPrefs.GetInt("PlayerMaterialIndex")]);
+        coin = false;
     }
 
     void Update()
@@ -30,5 +34,28 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         rigBody.velocity = new Vector3(dirX, -5f, 0f);
+    }
+
+    public void CoinCollected() {
+        coin = true;
+    }
+
+    public void StopMovement() {
+        speed = 0f;
+    }
+
+    public void ContinueMovement(){
+        speed = 25f;
+    }
+
+
+    public int CheckCoin() {
+        if (coin)   //Si ha cogido la moneda, devuelve 1
+        {
+            return 1;
+        }
+        else {  //Si no, devuelve 0
+            return 0;
+        }
     }
 }

@@ -5,10 +5,11 @@ using UnityEngine;
 public class EndManager : MonoBehaviour
 {
     private IngameManager gm;
-
+    private PlayerController player;
     private void Awake()
     {
         gm = GameObject.Find("_GameManager").GetComponent<IngameManager>();
+        player = GameObject.Find("PLAYER").GetComponent<PlayerController>();
     }
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,7 @@ public class EndManager : MonoBehaviour
         string getLevel = "Level" + gm.levelID + "Completed";
         PlayerPrefs.SetInt(getLevel, 1);
         //Guardar coleccionable
-        
+        string levelCoin = "Level" + gm.levelID + "Coin";
+        PlayerPrefs.SetInt(levelCoin, player.CheckCoin());  //1SI, 2NO 
     }
 }
