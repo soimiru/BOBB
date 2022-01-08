@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        dirX = Input.acceleration.x * speed;
+        dirX = Input.acceleration.x * speed * 0.5f;
         transform.Rotate(new Vector3(10, 10, 0) * Time.deltaTime);
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -7.5f, 7.5f), transform.position.y, transform.position.z);
     }

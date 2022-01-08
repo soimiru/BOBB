@@ -25,7 +25,7 @@ public class Spikes : MonoBehaviour
 
     IEnumerator Waiter(Collider other) {
         other.GetComponent<PlayerController>().StopMovement();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
         other.transform.position = new Vector3(0f, 14f, 0f);
         other.GetComponent<PlayerController>().ContinueMovement();
     }
