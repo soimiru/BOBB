@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class CamManager : MonoBehaviour
 {
@@ -50,9 +51,9 @@ public class CamManager : MonoBehaviour
         System.IO.File.WriteAllBytes(_SavePath + "photo" + ".png", snap.EncodeToPNG());
         ++_CaptureCounter;
         camMaterial.material.SetTexture("_snap", snap);
-        UnityEditor.EditorUtility.SetDirty(camMaterial);
-        UnityEditor.AssetDatabase.SaveAssets();
-        UnityEditor.AssetDatabase.Refresh();
+        //EditorUtility.SetDirty(camMaterial);
+        //AssetDatabase.SaveAssets();
+        //AssetDatabase.Refresh();
 
     }
 }
