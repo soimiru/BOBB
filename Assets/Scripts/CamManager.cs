@@ -28,7 +28,7 @@ public class CamManager : MonoBehaviour
     //}
 
     // For saving to the _savepath
-    private string _SavePath = "E:/Mis Cosas/DESARROLLO DE VIDEOJUEGUITOS/CUARTO/DAM/PROYECTOPELOTA/ProyectoPelota/Assets/Materials/"; //Change the path here!
+    private string _SavePath = "C:/Users/Usr/Documents/GitHub/ProyectoPelota/Assets/Materials"; //Change the path here!
     int _CaptureCounter = 0;
 
     public void OpenCamera() {
