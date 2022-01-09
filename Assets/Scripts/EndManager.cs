@@ -32,12 +32,11 @@ public class EndManager : MonoBehaviour
     }
 
     public void Save() {
-        //Guardar tiempo
         //Guardar nivel superado
         string getLevel = "Level" + gm.levelID + "Completed";
         PlayerPrefs.SetInt(getLevel, 1);
         //Guardar coleccionable
         string levelCoin = "Level" + gm.levelID + "Coin";
-        PlayerPrefs.SetInt(levelCoin, player.CheckCoin());  //1SI, 2NO 
+        PlayerPrefs.SetInt(levelCoin, player.CheckCoin());  //1SI, 0NO 
     }
 }
