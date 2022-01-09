@@ -36,8 +36,8 @@ public class PlayerController : MonoBehaviour
         rigBody.velocity = new Vector3(dirX, -5f, 0f);
     }
 
-    public void CoinCollected() {
-        coin = true;
+    public void CoinCollected(bool condition) {
+        coin = condition;
     }
 
     public void StopMovement() {

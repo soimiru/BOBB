@@ -84,7 +84,7 @@ public class MainMenuManager : MonoBehaviour
 
             //LÓGICA MONEDAS
             int cn = PlayerPrefs.GetInt(levelCoin, 0);
-            if (cn == 0)
+            if (cn == 1)
             {
                 //Alfa de la moneda a 1
                 listChildren[5].color = new Color(0.945098f, 0.6755089f, 0.2196078f, 1f);

@@ -6,8 +6,8 @@ public class CameraController : MonoBehaviour
 {
     public Transform target;
 
-    public float smoothSpeed = 0.125f;
-    public Vector3 offset;
+    private float smoothSpeed = 0.2f;
+    private Vector3 offset = new Vector3(0f, -1.5f, -10f);
 
     private void FixedUpdate()
     {

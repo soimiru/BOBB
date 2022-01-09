@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Coin : MonoBehaviour
+public class EndUiManager : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,11 +17,7 @@ public class Coin : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag.Equals("Player")) {
-            other.GetComponent<PlayerController>().CoinCollected(true);
-            gameObject.SetActive(false);
-        }
+    public void BackHome() {
+        SceneManager.LoadSceneAsync("MainMenuScene");
     }
 }

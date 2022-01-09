@@ -51,8 +51,16 @@ public class IngameUiManager : MonoBehaviour
     }
 
     public void NextLevel() {
-        string nextLevel = "Level" + (gm.levelID+1);
-        SceneManager.LoadScene(nextLevel);
+        if (gm.levelID < 10)
+        {
+            string nextLevel = "Level" + (gm.levelID + 1);
+            SceneManager.LoadScene(nextLevel);
+        }
+        else {
+            string nextLevel = "TheEnd";
+            SceneManager.LoadScene(nextLevel);
+        }
+        
     }
     public void BackToMenu(){
         Time.timeScale = 1;

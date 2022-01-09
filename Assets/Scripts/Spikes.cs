@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Spikes : MonoBehaviour
 {
+    private GameObject coin;
     // Start is called before the first frame update
     void Start()
     {
-        
+        coin = GameObject.Find("COIN");
     }
 
     // Update is called once per frame
@@ -25,8 +26,11 @@ public class Spikes : MonoBehaviour
 
     IEnumerator Waiter(Collider other) {
         other.GetComponent<PlayerController>().StopMovement();
+        coin.SetActive(true);
+        other.GetComponent<PlayerController>().CoinCollected(false);
         yield return new WaitForSeconds(0.2f);
-        other.transform.position = new Vector3(0f, 14f, 0f);
+        other.transform.position = new Vector3(0f, 13f, 0f);
         other.GetComponent<PlayerController>().ContinueMovement();
+        
     }
 }
