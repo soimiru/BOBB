@@ -21,6 +21,7 @@ public class MainMenuManager : MonoBehaviour
     void Start()
     {
         CheckPlayerPrefs();
+	Time.timeScale = 1;
     }
 
     // Update is called once per frame
