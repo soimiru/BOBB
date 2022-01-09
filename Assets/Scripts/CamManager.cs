@@ -8,29 +8,20 @@ public class CamManager : MonoBehaviour
     public string deviceName;
     WebCamTexture wct;
     public Renderer camMaterial;
+    public Material playerCamMat;
+
+    public Texture2D heightmap;
+    public Vector3 size;
+
+    private string _SavePath; //Change the path here!
 
     // Use this for initialization
     void Start()
     {
-        
+        size = new Vector3(100, 10, 100);
+        _SavePath = Application.dataPath + "/Materials/"; //Change the path here!
     }
 
-    // For photo varibles
-
-    public Texture2D heightmap;
-    public Vector3 size = new Vector3(100, 10, 100);
-
-
-    //void OnGUI()
-    //{
-    //    if (GUI.Button(new Rect(10, 70, 50, 30), "Click"))
-    //        TakeSnapshot();
-    //
-    //}
-
-    // For saving to the _savepath
-    private string _SavePath = "C:/Users/Usr/Documents/GitHub/ProyectoPelota/Assets/Materials"; //Change the path here!
-    int _CaptureCounter = 0;
 
     public void OpenCamera() {
         WebCamDevice[] devices = WebCamTexture.devices;
@@ -48,9 +39,14 @@ public class CamManager : MonoBehaviour
         snap.SetPixels(wct.GetPixels());
         snap.Apply();
 
-        System.IO.File.WriteAllBytes(_SavePath + "photo" + ".png", snap.EncodeToPNG());
-        ++_CaptureCounter;
-        camMaterial.material.SetTexture("_snap", snap);
+        //System.IO.File.WriteAllBytes(_SavePath + "photo" + ".png", snap.EncodeToPNG());
+        //snap.LoadImage(System.IO.File.ReadAllBytes(_SavePath + "photo" + ".png"));
+        //camMaterial.material.SetTexture("_snap", snap);
+        camMaterial.material.mainTexture = snap;
+        
+
+        playerCamMat.CopyPropertiesFromMaterial(camMaterial.material);
+        snap.Apply();
         //EditorUtility.SetDirty(camMaterial);
         //AssetDatabase.SaveAssets();
         //AssetDatabase.Refresh();

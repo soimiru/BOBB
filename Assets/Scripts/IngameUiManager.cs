@@ -22,6 +22,7 @@ public class IngameUiManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         StartCoroutine(CountdownToStart());
     }
 
@@ -47,6 +48,7 @@ public class IngameUiManager : MonoBehaviour
     }
 
     public void ShowEndPanel() {
+        Time.timeScale = 0;
         anim.SetTrigger("EndIN");
     }
 
