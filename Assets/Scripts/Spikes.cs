@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spikes : MonoBehaviour
 {
     private GameObject coin;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class Spikes : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag.Equals("Player")) {
+            Handheld.Vibrate();
             StartCoroutine(Waiter(other));
         }
     }
@@ -33,4 +35,6 @@ public class Spikes : MonoBehaviour
         other.GetComponent<PlayerController>().ContinueMovement();
         
     }
+
+ 
 }
