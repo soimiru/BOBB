@@ -28,6 +28,9 @@ public class EndManager : MonoBehaviour
         if (other.gameObject.tag.Equals("Player")) {
             Save();
             gm.uiManager.ShowEndPanel();
+            if (player.CheckCoin() == 0) {
+                gm.uiManager.HideCoinUI();
+            }
         }
     }
 

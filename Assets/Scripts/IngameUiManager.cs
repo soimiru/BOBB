@@ -82,4 +82,9 @@ public class IngameUiManager : MonoBehaviour
     public void DespauseGame() {
         Time.timeScale = 1;
     }
+
+    public void HideCoinUI() { 
+        Image coinImage = GameObject.Find("CoinImage").GetComponent<Image>();
+        coinImage.gameObject.SetActive(false);
+    }
 }
