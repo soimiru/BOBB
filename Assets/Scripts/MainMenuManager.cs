@@ -51,6 +51,10 @@ public class MainMenuManager : MonoBehaviour
         PlayerPrefs.SetInt("PlayerMaterialIndex", index);
     }
 
+    public void GoToURL(string url) {
+        Application.OpenURL(url);
+    }
+
     public void CheckPlayerPrefs() {
         string getLevel = "";
         string levelCoin = "";
