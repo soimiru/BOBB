@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EndManager : MonoBehaviour
@@ -10,17 +8,6 @@ public class EndManager : MonoBehaviour
     {
         gm = GameObject.Find("_GameManager").GetComponent<IngameManager>();
         player = GameObject.Find("PLAYER").GetComponent<PlayerController>();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnTriggerEnter(Collider other)

@@ -1,22 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spikes : MonoBehaviour
 {
     private GameObject coin;
 
-    // Start is called before the first frame update
     void Start()
     {
         coin = GameObject.Find("COIN");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
